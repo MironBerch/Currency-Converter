@@ -1,0 +1,51 @@
+/***Style for all project's templates***/
+body {
+  background-color: #FAFAFA;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+  
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+}
+  
+
+.from-amount {
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+.button {
+  border: 1px solid black;
+  background-color: #FFF;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display:inline-block;
+}
+  
+.button:hover{
+  background: gray;
+  color: white;
+  border-color: white;
+  
+}
+
+
+.answer-card {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}

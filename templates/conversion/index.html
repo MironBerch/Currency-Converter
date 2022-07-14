@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} Currency Converter {{ block.super }} {% endblock %}
+
+{% block content %}
+
+
+        <div class="container">
+            <div>
+                <div>
+                    <h1>Конвертер валют</h1>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+
+                        <div class="div-from-amount">
+                            <label for="from-amount">Сумма: </label><input class="from-amount" type="number" {% if from_amount %} value="{{ from_amount }}" {% endif %} name="from-amount" id="from-amount">
+                        </div>
+
+                        <div>
+                            <label for="from-curr">Отдаём </label>
+                            <select name="from-curr" value="{{ from_curr }}" id="from-curr">
+                                {% for curr in currencies %}
+                                    <option value="{{ curr }}" {% if from_curr == curr %}selected{% endif %}>{{ curr }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="to-curr">Получаем </label>
+                            <select name="to-curr" value="{{ to_curr }}" id="to-curr">
+                                {% for curr in currencies %}
+                                    <option value="{{ curr }}" {% if to_curr == curr %}selected{% endif %}>{{ curr }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+
+                    {% if converted_amount %}
+                        <div class="answer-card">
+                            <span class="anwer-card-span"><h5>Отдаем {{ from_amount }} <b> {{ from_curr }} </b> Получаем {{ converted_amount }} <b> {{ to_curr }} </b></h5></span>
+                        </div>
+                    {% endif %}
+                    
+                    <button class="button" type="submit">Рассчитать</button>
+
+                </form>
+            </div>
+        </div>
+
+
+{% endblock %}
