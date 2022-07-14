@@ -1,8 +1,6 @@
 from django.shortcuts import render
 import requests
 
-from config.settings import BASE_DIR
-
 
 def index(request):
     response = requests.get(url='https://api.exchangerate-api.com/v4/latest/USD').json()
@@ -27,5 +25,4 @@ def index(request):
             'currencies': currencies,
             'converted_amount': converted_amount
         }
-        print(BASE_DIR)
         return render(request=request, template_name='conversion/index.html', context=context)
